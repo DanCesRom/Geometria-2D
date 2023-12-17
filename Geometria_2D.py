@@ -2,6 +2,8 @@ import tkinter as tk
 from tkinter import ttk
 import math
 
+#Parte escencial para la definicion base de que tratara el programa
+
 class Figura2DApp:
     def __init__(self, root):
         self.root = root
@@ -29,6 +31,8 @@ class Figura2DApp:
         creador_label = tk.Label(self.root, text="By Daniel Cespedes 22-0390", anchor="se", foreground="gray")
         creador_label.grid(row=5, column=1, pady=(0, 5), sticky="se", columnspan=2)
 
+#Seccion de creador de ventanillas para los textos y opciones
+    
     def create_widgets(self):
         figura_label = ttk.Label(self.root, text="Selecciona una figura:")
         figura_label.grid(row=0, column=0, padx=10, pady=10, sticky=tk.W)
@@ -52,7 +56,7 @@ class Figura2DApp:
         figura = self.figura_seleccionada.get()
         color = self.color_seleccionado.get()
 
-        # Convertir el nombre del color a inglés usando el diccionario de traducción
+        # Convertir el nombre del color a inglÃ©s usando el diccionario de traducciÃ³n
         color_ingles = self.traduccion_colores.get(color, color)
 
         self.canvas.delete("all")  # Limpiar el canvas antes de dibujar una nueva figura
@@ -81,7 +85,7 @@ class Figura2DApp:
     def dibujar_pentagono(self, color):
         x, y, longitud = 150, 150, 50
 
-        # Coordenadas para dibujar una estrella de cinco puntas
+        # Coordenadas para dibujar un pentagono
         puntos_pentagono = []
         for i in range(5):
             angulo = math.radians(72 * i - 90)
@@ -89,7 +93,7 @@ class Figura2DApp:
             y_i = y + longitud * math.sin(angulo)
             puntos_pentagono.extend([x_i, y_i])
 
-        # Unir los puntos para formar la estrella
+        # Unir los puntos para formar el pentagono
         self.canvas.create_polygon(puntos_pentagono, fill=color)
 
     def borrar_figura(self):
